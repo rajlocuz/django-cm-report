@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="dvprint">
+<header class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">CIS AWS Foundations Benchmark controls Details</h1>
+            <hr>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="{% url 'home' %}">Back to Home Page</a>
+            <p>
+            <h3>{{ benchmark.check_id }} - {{ benchmark.check_title }}</h3>
+            </p>
+            <p><h4>Severity: </h4> {{ benchmark.severity }}</p>
+            <p><h4>AWS Config Rule: </h4> {{ benchmark.aws_config_rule }}</p>
+            <P><h4>Observations: </h4> {{ benchmark.observation }}</P>
+            <p><h4>Impact: </h4> {{ benchmark.impact }}</p>
+            <p><h4>Recommendations: </h4> {{ benchmark.recommendation }}</p>
+            <p><h4>Category: </h4> {{ benchmark.category_detail }}</p>
+            <a href="{% url 'home' %}">Back to Home Page</a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

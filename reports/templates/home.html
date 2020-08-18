@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="dvprint">
+<header class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">CIS AWS Foundations Benchmark controls Details</h1>
+            <hr>
+        </div>
+    </div>
+</header>
+
+<section class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Check Id</th>
+                    <th>Check Title</th>
+                    <!--<th>AWS Config Rule</th>-->
+                    <th>Severity</th>
+                    <!--<th>Observations</th>-->
+                    <!--<th>Impact</th>-->
+                    <!--<th>Recommendations</th>-->
+                    <th>Category</th>
+                    <th>Get Details</th>
+                </tr>
+                {% for benchmak in benchmarks %}
+                    <tr>
+                        <td>{{ benchmak.id }}</td>
+                        <td>{{ benchmak.check_id }}</td>
+                        <td>{{ benchmak.check_title }}</td>
+                       <!-- <td>{{ benchmak.aws_config_rule }}</td>-->
+                        <td>{{ benchmak.severity }}</td>
+                        <!-- <td>{{ benchmak.observation }}</td>-->
+                        <!-- <td>{{ benchmak.impact }}</td>-->
+                        <!-- <td>{{ benchmak.recommendation }}</td>-->
+                        <td>{{ benchmak.category_detail }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="{% url 'benchmark_detail' benchmak.id %}">Details</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</section>
+</div>
+
+{% endblock %}
